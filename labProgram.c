@@ -6,6 +6,7 @@
 #include <sys/wait.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+
 /**********************************************
 *This program is a simple shell that takes the
 *user input and execute it in a child process.
@@ -24,6 +25,9 @@ int main(int argc, char** argv){
 
   //keep getting user input until "quit"
   while (1) {
+
+    //clear the command list
+    commandList = NULL;	
 
     //prompt user for input and store input
     printf("\nEnter your command or type quit to exit\n");
@@ -72,4 +76,5 @@ int main(int argc, char** argv){
       printf("CPU usage: %d ms", resources.ru_utime.tv_usec);
       }
     }
+   return 0;
 }
