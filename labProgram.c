@@ -15,12 +15,15 @@ int main(int argc, char** argv){
 	while (1) {
 		printf("\nEnter your command or type quit to exit\n");
 		fgets(command, 100, stdin);
+
+		//exit if user types quit
 		if (strcmp(command, quit) == 0)
 			exit(0);
-		int count = 0;
+
 		//remove newline from string
 		command[strlen(command) - 1] = 0;
 
+		int cout = 0
 		//Tokenize string & store into dynamically allocated string
 		for (char * p = strtok(command, " "); p != NULL; p = strtok(NULL, " ")){
 				count++;
@@ -29,14 +32,17 @@ int main(int argc, char** argv){
 				strcpy(commandList[count-1], p);
 		}
 
+		//saved the PID to a variable so that we can get info using it in commands later
 		pid = fork();
 
+		//child runs this
 		if(pid == 0){
 				execvp(commandList[0], commandList);
 				exit(0);
 		}
+		//parent runs this
 		else{
-
+		//Tried to make this work, but wasn't successful. Not sure if it's the right track or not
 		/*
 			char pCommand[100] = "grep ctxt /proc/";
 			char strPid[50];
