@@ -73,7 +73,13 @@ int main(int argc, char** argv){
       getrusage(RUSAGE_CHILDREN, &resources);
 
       //print the usage time to the user
-      printf("CPU usage: %d ms", resources.ru_utime.tv_usec);
+      printf("CPU usage: %d ms\n", resources.ru_utime.tv_usec);
+
+      //get number of involuntary context switches
+      long int ics = resources.ru_nivcsw;
+
+      //print number of involuntary context switches
+      printf("Number of involuntary context switch: %ld\n", ics); 
       }
     }
    return 0;
