@@ -7,8 +7,9 @@
 
 /********************************************************************
 * This program is a multi threaded program that simulates a file
-* server. Once the user presses CTRL+C the program will exit
-* cleanly
+* server & displays stats about program usage. Once the user presses
+* CTRL+C the program will exit cleanly
+*
 * @Author: Mazen Ashgar & Samuel Ventocilla
 ********************************************************************/
 
